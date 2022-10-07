@@ -1,0 +1,23 @@
+export class Activitroyal {
+    typeactivite:any
+    site:any
+    commun:any
+    douar:any
+    programme:any
+    secteur:any
+    objectif:any
+    couttotal:any
+    coutannul:any
+    typeprojet:any
+    disponiblite:any
+    etude:any
+    autorisation:any
+    finance:any
+    typeoffre:any
+    datedebut:any
+    datefin:any
+    etatavance:any
+    percavance:any
+    suiteobserve:any
+    observation:any
+}

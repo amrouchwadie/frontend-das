@@ -1,0 +1,28 @@
+<app-navbar4></app-navbar4>
+<br>
+<div class="container">
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Slug</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let par of roles">
+        <th scope="row">{{ par.id }}</th>
+        <td>{{ par.name }}</td>
+        <td>{{ par.slug }}</td>
+        <td>{{ par.description }}</td>
+        <td>
+            <button class="btn btn-danger btn-sm " (click)="deletePartnirData(par.id)" >Supprimer</button>
+            <a class="btn btn-dark btn-sm mx-2" routerLink="../editrole/{{par.id}}"> Editer </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

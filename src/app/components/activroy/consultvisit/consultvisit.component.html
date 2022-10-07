@@ -1,0 +1,289 @@
+<app-navbar></app-navbar>
+<br>
+
+<div class="container">
+    <button class="btn btn-success" (click)="openPDF()">Exporter PDF</button> <br>
+<table class="table"  id="htmlData"> 
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col" style="color:white">Donnée de Projet/Action</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    Type d'activite propose
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                        {{visite.typeactivite}}
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                  Annexe Administrative Site
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                     
+                           {{visite.site}}
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Commun Site
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                     {{ visite.commun }}
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Douar Site
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            {{visite.douar}}
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                     Programme INDH
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                     
+                         {{visite.programme}}
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                     Secteur Projet
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                        <div class="input-group flex-nowrap">
+                        
+                            {{visite.secteur }}  </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Objectif de projet
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                        <div class="input-group">
+                         
+                        {{visite.objectif}}  </div>
+                    </div>
+                    </div>
+
+                  </div> 
+                  <table style="border-collapse: collapse; width: 100%;" border="1">
+                    <tbody>
+                    <tr>
+                    <td style="width: 100%;">
+                        <div class="row">
+                            <div class="col">
+                                Cout Global (DH)
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group flex-nowrap">
+                                    
+                                        {{visite.couttotal}} DH
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                Charge Annuelle de fonctionemment (DH)
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group flex-nowrap">
+                                    
+                                      {{  visite.coutannul }} DH </div>
+                                </div>
+                              </div>
+                          </div>
+                 
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col">
+                          Type du projet
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                            <div class="input-group">
+                             
+                                {{visite.typeprojet }}</div>
+                        </div>
+                        </div>
+    
+                      </div> 
+                      <div class="row">
+                        <div class="col">
+                         Disponiblité Foncier
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                {{visite.disponiblite}}
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                  
+                                 Etude
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        {{visite.etude}}
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                        </div>
+                    
+                            <div class="row">
+                                <div class="col">
+                                 Financement
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                    {{    visite.finance}}
+                                  </div>
+                            </div>
+                           
+                      
+                      <div class="row">
+                        <div class="col">
+                       Autorisations
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                               {{ visite.autorisation}}
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                         Type Maître d'ouvrage
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                         
+                                {{visite.typeoffre}}
+                              </div>
+                        </div>
+                      </div>
+                     
+                      <div class="row">
+                        <div class="col">
+                          Date Debut de Travaux
+                        </div>
+                        <div class="col">
+                           {{ visite.datedebut}}
+                        </div>
+                        <div class="col">
+                            Date fin de Travaux
+                        </div>
+                        <div class="col">
+                          {{  visite.datefin}}
+                        </div>
+                      </div>
+<br>
+
+                      <table class="table">
+                        <thead class="bg-primary">
+                          <tr>
+
+                            <th scope="col" style="color: white;">Etat D'avencement de Travaux</th>
+                    
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+
+                                <div class="row">
+                                    <div class="col">
+                                      Situation de marché
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                           
+                                         {{visite.etatavance}}
+                                          </div>
+                                    </div>
+                                    <div class="col">
+                                      Taux d'avencement physique
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                      {{visite.percavance}}
+                                        </div>  
+                                    </div>
+                                  </div>
+
+                            </th>
+                      
+                          </tr>
+                      
+                        </tbody>
+                      </table>
+                      <div class="row">
+                        <div class="col">
+                          
+                         Suite Reservation
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                      
+                          {{visite.suiteobserve}}
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                         Observation
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                            <div class="input-group flex-nowrap">
+                            
+                               {{visite.observation}}
+                              </div>
+                        </div>
+                      </div>
+                      </div>
+                </div>
+                
+        </th>
+       
+   
+    </tbody>
+  </table>
+
+
+</div>

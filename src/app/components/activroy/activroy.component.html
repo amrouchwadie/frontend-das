@@ -1,0 +1,119 @@
+<app-navbar></app-navbar>
+<div class="container">
+<br>
+
+<table class="table ">
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col">
+            <ul><li style="color: white;text-align: center;">Saisie des Activité Royales</li></ul>
+        </th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Type d'activité propsée</label>
+                            </div>
+                            <select (input)="getSearchVisiteData($event)"  class="custom-select" id="inputGroupSelect01">
+                                <option selected>Séléctionner Type</option>
+                                <option  >Inaugration</option>
+                                <option  >Lancement</option>
+                                <option  >Pose de premiere pierre</option>
+                                <option  >présentation</option>
+                                <option  >Remise</option>
+                                <option  >Signature de convention</option>
+                                <option  >Visite</option>
+                            </select>
+                            </div>
+                            <br>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">Secteur [Mot Clé]</span>
+                                </div>
+                                <input type="text" class="form-control" (input)="getSearchSectorData($event)"   placeholder="Mot clé" >
+                            
+                              </div>
+                  </div>
+                  <div class="col">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Commune Site</label>
+                                    </div>
+                                    <select (input)="getSearchCommunData($event)"  class="custom-select" id="inputGroupSelect01">
+                                        <option selected>Choisir une commune</option>
+                                        <option >AL BAHRAOUIN</option>
+                                        <option >ANJRA</option>
+                                        <option >JOUAMAA</option>
+                                        <option >KSAR AL MAJZ</option>
+                                        <option >KSAR SGHIR</option>
+                                        <option >MALLOUSSA</option>
+                                        <option >TAGHRAMT</option>
+                                    </select>
+                                    </div>
+                                    <br>
+                                    <div class="input-group mb-3">
+                                     
+                                        <button  routerLink="/addvisit" class="btn btn-primary bg-primary" >Ajouter Visite</button>
+                                    
+                                      </div>
+                          </div>
+                          </div>
+                          </div>
+
+                  </div>
+                </div>
+                </div>
+
+        </th>
+
+      </tr>
+    </tbody>
+</table>
+
+<table class="table" *ngIf="this.data">
+  <thead class="bg-primary">
+    <tr style="color: white;">
+      <th scope="col">Type Visite</th>
+      <th scope="col">Programme</th>
+      <th scope="col">Commun</th>
+      <th scope="col">Secteur</th>
+      <th scope="col">Type Projet/Action</th>
+      <th scope="col">Objectif</th>
+      <th scope="col">Suite Reservation</th>
+      <th scope="col">Coüt Global </th>
+      <th>Action</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let svr of data">
+    <tr >
+      <th scope="row">{{svr.typeactivite}}</th>
+      <td style="text-align: center;">{{svr.programme}}</td>
+      <td style="text-align: center;">{{svr.commun}}</td>
+      <td style="text-align: center;">{{svr.secteur}}</td>
+      <td style="text-align: center;">{{svr.typeprojet}}</td>
+      <td style="text-align: center;">{{svr.objectif}}</td>
+      <td style="text-align: justify;">{{svr.suiteobserve}}</td>
+      <td style="text-align: center;">{{svr.couttotal * svr.coutannul }}</td>
+
+      <td><button class="btn btn-success" routerLink="../consultvisit/{{svr.id}}" >Consulter</button></td>
+      <td><button  class="btn btn-primary" routerLink="../editvisit/{{svr.id}}">Editer</button></td>
+      <td><button class="btn btn-danger" (click)="deleteVisiteData(svr.id)" >Supprimer</button></td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+</div>

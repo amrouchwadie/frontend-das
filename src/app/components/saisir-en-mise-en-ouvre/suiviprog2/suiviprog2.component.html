@@ -1,0 +1,116 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container">
+<table class="table ">
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col">
+            <ul><li style="color: white;text-align: center;">20 - Programme d'accompagnement des personnes en situation de précarité</li></ul>
+        </th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Année</label>
+                            </div>
+                            <select (input)="getSearchData($event)" class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choisir Année</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+
+                            </select>
+                            </div>
+                            <br>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">Reference</span>
+                                </div>
+                                <input type="text" class="form-control" (input)="getRefData($event)" >
+                            
+                              </div>
+                  </div>
+                  <div class="col">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Secteur</label>
+                                    </div>
+                                    <select (input)="getSecData($event)" class="custom-select" id="inputGroupSelect01">
+                                        <option selected>Choisir Secteur</option>
+                                        <option  *ngFor="let svr of suivis"  [value]="[svr.secteur]">{{svr.secteur}}</option>
+                                 
+                                    </select>
+                                    </div>
+                                    <br>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Intitulé(Mot clé)</span>
+                                        </div>
+                                        <input type="text" class="form-control" (input)="getIntiata($event)" >
+                                    
+                                      </div>
+                          </div>
+                          </div>
+                          </div>
+
+                  </div>
+                </div>
+                </div>
+
+        </th>
+
+      </tr>
+
+      <table class="table" *ngIf="this.data">
+        <thead class="bg-primary">
+          <tr style="color: white;">
+            <th scope="col">Année</th>
+            <th scope="col">Programme</th>
+            <th scope="col">Secteur</th>
+            <th scope="col">Type Projet/Action</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Intitulé</th>
+            <th scope="col">Coüt Global Estimatif</th>
+            <th scope="col">Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let svr of data">
+          <tr >
+            <th scope="row">{{svr.annee}}</th>
+            <td style="text-align: center;">{{svr.programme2}}</td>
+            <td style="text-align: center;">{{svr.demcible}}</td>
+            <td style="text-align: center;">{{svr.typeprojet}}</td>
+            <td style="text-align: center;">{{svr.id}}</td>
+            <td style="text-align: justify;">{{svr.intitule}}</td>
+            <td style="text-align: center;">{{svr.qtetotal + svr.partindh}}</td>
+            <td style="text-align: justify;">{{svr.validation}}</td>
+            <td><a routerLink="../showprog2/{{svr.id}}" class="btn btn-primary" role="button">Consulter</a></td>
+          </tr>
+    
+    
+        </tbody>
+      </table>
+
+
+    
+    </tbody>
+  </table>
+
+
+
+  
+</div>

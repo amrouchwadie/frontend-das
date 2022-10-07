@@ -1,0 +1,336 @@
+<app-navbar3></app-navbar3>
+<br>
+
+
+
+<br>
+<div class="container">
+  <form (ngSubmit)="updateProg1()">
+<table class="table" >
+ <input type="hidden" name="programe1" [(ngModel)]="programe1.programme1" >
+
+    <thead class="bg-primary">
+  <tr>
+  <td style="color: white;">Locatisation du projet</td>
+  </tr>
+</thead>
+  <tr>
+  <td >
+
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="annee">Année</label>
+        </div>
+        <select class="custom-select" name="annee" [(ngModel)]="programe1.annee" id="annee">
+          <option selected>Choose...</option>
+          <option value="2019">2019 </option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+  
+        </select>
+      </div>
+    
+<br>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="site">Annexe administration site</label>
+      </div>
+      <select class="custom-select" [(ngModel)]="programe1.site" name="site" id="site">
+        <option selected>Choose...</option>
+        <option value="Cercle Fahs">Cercle Fahs </option>
+        <option value="Cercle Anjra">Cercle Anjra</option>
+        <option value="District Tanger-Med">District Tanger-Med</option>
+      </select>
+    </div>
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="commun">Commune Site</label>
+      </div>
+      <select (change)="changeCountry($event)" [(ngModel)]="programe1.commun" class="custom-select"  name="commun" id="commun"   >
+        <option selected>Choose...</option>
+        <option  *ngFor="let item of countryList " value="{{item.name}}" >{{item.name}}</option>
+      </select>
+    </div>
+  
+    <div  class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="douar">Douar Site</label>
+      </div>
+      <select class="custom-select" [(ngModel)]="programe1.douar" name="douar" id="douar" >
+        <option selected>Choose...</option>
+        <option *ngFor="let itm of cities" value="{{itm}}">{{itm}}</option>
+  
+      </select>
+    </div>
+  </td>
+  </tr>
+
+  </table>
+
+  <table class="table" >
+    <thead class="bg-primary">
+    <tr>
+    <td style="width: 100%;" style="color:white">Données du projet/action</td>
+    </tr>
+    </thead>
+    <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+          Projet ou action
+        </div>
+        <div class="col">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="proact" value="projet" [(ngModel)]="programe1.proact" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">Projet</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="proact" value="action" [(ngModel)]="programe1.proact"  class="custom-control-input">
+            <label class="custom-control-label"  for="customRadio2">Action</label>
+          </div>
+        </div>
+      </div>
+    </td>
+  
+    </tr>
+<tr>
+  <td style="width: 100%;">
+    <div class="col">
+     Intitulé
+    </div>
+    <div class="col">
+      <textarea class="form-control" name="intitule" [(ngModel)]="programe1.intitule" aria-label="With textarea"></textarea>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td style="width: 100%;">
+    <div class="row">
+      <div class="col">
+        Projet/Sous Projet
+      </div>
+      <div class="col">
+        <div class="custom-control custom-radio1">
+          <input type="radio" id="aaa" name="sousprojet" value="Nouveau Projet/Action" [(ngModel)]="programe1.sousprojet" class="custom-control-input">
+          <label class="custom-control-label" for="aaa">Nouveau Projet/Action</label>
+        </div>
+        <div class="custom-control custom-radio1">
+          <input type="radio" id="bbb" name="sousprojet" value="Sous Projet/Action d'un projet INDH Existant" [(ngModel)]="programe1.sousprojet" class="custom-control-input">
+          <label class="custom-control-label" for="bbb">Sous Projet/Action d'un projet INDH Existant</label>
+        </div>
+        <div class="custom-control custom-radio1">
+          <input type="radio" id="ccc" name="sousprojet" value="Sous Projet/Action d'un projet exist hors INDH" [(ngModel)]="programe1.sousprojet" class="custom-control-input">
+          <label class="custom-control-label" for="ccc">Sous Projet/Action d'un projet exist hors INDH</label>
+        </div>
+      </div>
+    </div>
+  </td>
+
+  </tr>
+  <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+         Type de projet/Action
+        </div>
+        <div class="col">
+         
+          <div class="input-group flex-nowrap">
+            <input type="text" class="form-control" name="typeprojet" [(ngModel)]="programe1.typeprojet" placeholder="Enter le Type/Action" aria-label="Enter le Type/Action" aria-describedby="addon-wrapping">
+       
+          </div>
+      
+        </div>
+        
+      </div>
+      
+    </td>
+    
+  </tr>
+  <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+         Nature de l'intervention
+        </div>
+        <div class="col">
+         
+          <div class="input-group flex-nowrap">
+            <input type="text" class="form-control" name="natureinterv" [(ngModel)]="programe1.natureinterv" placeholder="Nature intervention" aria-label="Nature intervention" aria-describedby="addon-wrapping">
+          </div>
+          </div>
+          <div class="col">
+          <div class="input-group flex-nowrap">
+            <input type="number" class="form-control" name="qte" [(ngModel)]="programe1.qte" placeholder="Quantité" aria-label="Quantité" aria-describedby="addon-wrapping" min="0">
+          </div>
+          </div>
+          <div class="col">
+          <div class="input-group flex-nowrap">
+            <input type="number" class="form-control" name="cout" [(ngModel)]="programe1.cout" placeholder="Cout (DH)" aria-label="Cout (DH)" aria-describedby="addon-wrapping" min="0">
+       
+          </div>
+        </div>
+      </div>
+   
+      
+    </td>
+    
+  </tr>
+  <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+         Demension Cible
+        </div>
+        <div class="col">
+         
+          <div class="input-group flex-nowrap">
+            <input type="text" class="form-control" name="demcible" [(ngModel)]="programe1.demcible" placeholder="Demension Cible" aria-label="Demension Cible" aria-describedby="addon-wrapping">
+       
+          </div>
+      
+        </div>
+        
+      </div>
+      
+    </td>
+    
+  </tr>
+  <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+         Problemtique Cible
+        </div>
+        <div class="col">
+         
+          <div class="input-group flex-nowrap">
+            <input type="text" class="form-control" name="probcible" [(ngModel)]="programe1.probcible" placeholder="Problemtique Cible" aria-label="Problemtique Cible" aria-describedby="addon-wrapping">
+       
+          </div>
+      
+        </div>
+        
+      </div>
+      
+    </td>
+    
+  </tr>
+  <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+        Frein de developpement
+        </div>
+        <div class="col">
+         
+          <div  class="input-group mb-3">
+            
+            <select class="custom-select" [(ngModel)]="programe1.freindev" name="freindev" id="freindev" >
+              <option selected>Choix frain de developpement...</option>
+              <option value="Disponible">Disponible</option>
+              <option value="Accessible" >Accessible</option>
+              <option value="Qualite" >Qualité</option>
+              <option value="Comportement" >Comportement</option>
+            </select>
+          </div>
+      
+        </div>
+        
+      </div>
+      
+    </td>
+    
+  </tr>
+  <tr>
+    <td style="width: 100%;">
+      <div class="row">
+        <div class="col">
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">Cout total(DH)</span>
+            </div>
+            <input type="text" class="form-control" name="qtetotal" [(ngModel)]="programe1.qtetotal" placeholder="Cout total(DH)" aria-label="Cout total(DH)" aria-describedby="addon-wrapping">
+       
+          </div><br>
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text"  id="addon-wrapping">Detlai de realisation (En mois)</span>
+            </div>
+            <input type="text" class="form-control" name="delai" [(ngModel)]="programe1.delai" placeholder="Detlai de realisation " aria-label="Detlai de realisation " aria-describedby="addon-wrapping">
+       
+          </div><br>
+           <div class="input-group flex-nowrap">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping">Nature de Beneficiaires</span>
+          </div>
+          <input type="text" class="form-control" name="ntrben" [(ngModel)]="programe1.ntrben" placeholder="Nature de Beneficiaire" aria-label="Nature de Beneficiaire" aria-describedby="addon-wrapping">
+     
+        </div>
+        </div>
+        <div class="col">
+         
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">Part INDH(DH)</span>
+            </div>
+            <input type="text" class="form-control" name="partindh" [(ngModel)]="programe1.partindh" placeholder="Part INDH(DH)" aria-label="Part INDH(DH)" aria-describedby="addon-wrapping">
+       
+          </div><br>
+          <div  class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="partenir_id">partenir</label>
+            </div>
+            <select class="custom-select" [(ngModel)]="programe1.partenir_id" name="partenir_id" id="partenir_id" >
+              <option selected>Choisir Partenir...</option>
+              <option *ngFor="let itm of partenirs" value="{{itm.id}}">{{itm.name}}</option>
+        
+            </select>
+          </div>
+          <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="addon-wrapping">Nombre de Beneficiaires</span>
+            </div>
+            <input type="text" class="form-control" name="nbrben" [(ngModel)]="programe1.nbrben" placeholder="Nombre de Beneficiaire" aria-label="Nombre de Beneficiaire" aria-describedby="addon-wrapping">
+       
+          </div>
+        </div>
+        <div  class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="validation">validation</label>
+          </div>
+          <select class="custom-select" [(ngModel)]="programe1.validation" name="validation" id="validation" >
+            <option selected>Choose...</option>
+            <option  value="Valider">Valider</option>
+            <option  value="Dévalider">Devalider</option>
+          </select>
+        </div>
+   
+      </div>
+
+      <!-- <div class="switch_box box_4">
+        <div class="input_wrapper">
+          <input type="checkbox" name="validation" [(ngModel)]="programe1.validation" value="on" class="switch_4">
+          <svg  name="validation" value="on" class="is_checked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.67 426.67">
+          <path d="M153.504 366.84c-8.657 0-17.323-3.303-23.927-9.912L9.914 237.265c-13.218-13.218-13.218-34.645 0-47.863 13.218-13.218 34.645-13.218 47.863 0l95.727 95.727 215.39-215.387c13.218-13.214 34.65-13.218 47.86 0 13.22 13.218 13.22 34.65 0 47.863L177.435 356.928c-6.61 6.605-15.27 9.91-23.932 9.91z"/>
+        </svg>
+          <svg  name="validation" class="is_unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982">
+          <path d="M131.804 106.49l75.936-75.935c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.49 81.18 30.555 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.99 6.99-6.99 18.323 0 25.312L81.18 106.49 5.24 182.427c-6.99 6.99-6.99 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0L106.49 131.8l75.938 75.937c6.99 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.323 0-25.313l-75.936-75.936z" fill-rule="evenodd" clip-rule="evenodd"/>
+        </svg>
+          </div>
+      </div> -->
+    </td>
+    
+  </tr>
+    </table>
+
+
+
+
+<button class="btn btn-success">Enregistrer</button>
+</form>
+</div>

@@ -1,0 +1,131 @@
+<app-navbar3></app-navbar3>
+<br>
+<div class="container">
+<table class="table">
+    <thead class="bg-primary">
+      <tr>
+        <th style="color: white;text-align: white;" >Saisir/Modifier fiche du Développement humain</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th >
+           
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Anneée</label>
+                        </div>
+                        <select (input)="getSearchData($event)" class="custom-select" id="inputGroupSelect01">
+                          <option  selected>Selection Année...</option>
+                          <option *ngFor="let ann of annees" [value]="[ann.annee]"  >  Année {{ ann.annee }}</option>
+                        </select>
+                      </div>
+                  </div>
+
+                  <div class="col" *ngIf="this.idd == '1' ">
+                    <form (ngSubmit)="InsertPdhData()" >
+                    <input [ngModelOptions]="{standalone: true}" type="hidden" id="annee" name="annee" class="bg-light form-control" [(ngModel)]="pdh.annee"  [value]='anns.annee'  autocomplete="annee" >
+                    <button (click)="pdh.annee =  anns.annee+1" [value]='anns.annee'   class="btn btn-primary rounded-circle"  ondblclick="alert('Annee Ajouter')" >+</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </th>
+</tr>
+     
+</tbody>
+</table>
+<form (ngSubmit)="AnneePdhData()">
+  <table class="table" > 
+    <thead class="bg-primary ">
+      <tr>
+        <th scope="col">
+            <br>
+        </th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr >
+        <th >
+        
+            <input type="hidden"  name="annee" class="bg-light form-control" [(ngModel)]="pdh.annee" [value]="pdh.annee" >
+                  
+            <div class="container">
+                <div class="row">
+                  <div class="col" >
+                    Progres Réalises sur l'année {{pdh.annee-1}}
+                  </div>
+                  <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            
+                        </div>
+                        <textarea  class="form-control" name="progres"  [(ngModel)]="pdh.progres" aria-label="With textarea">{{pdh.progres}}</textarea>
+                        </div>
+                  </div>
+                </div>
+             </div>
+            <br>
+         
+             <div class="container">
+                <div class="row">
+                  <div class="col">
+                    Action menées sur les aspects immatérials du Developpment Humain
+                  </div>
+                  <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            
+                        </div>
+                        <textarea class="form-control "  name="actionpdh" [(ngModel)]="pdh.actionpdh" aria-label="With textarea">{{pdh.actionpdh}}</textarea>
+                        </div>
+                  </div>
+                </div>
+             </div>
+             <br>
+             
+             <br>
+         
+             <div class="container">
+                <div class="row">
+                  <div class="col">
+                    Priorités pour l'année {{data.annee+1}}
+                  </div>
+                  <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            
+                        </div>
+                        <textarea class="form-control" name="priorite" [(ngModel)]="pdh.priorite" aria-label="With textarea">{{pdh.priorite}}</textarea>
+                        </div>
+                  </div>
+                </div>
+             </div>
+             <br>
+       
+
+             
+
+        </th>
+     
+
+       
+     
+      
+ 
+      </tr>
+      <button type="submit" class="btn btn-primary bg-primary" onclick="alert('Information ajouter')" role="button">Enregistrer</button>
+    </tbody>
+
+  </table>
+</form>
+</div>
+
+
+
+   
+  

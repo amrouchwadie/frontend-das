@@ -1,0 +1,150 @@
+<app-navbar3></app-navbar3>
+<br>
+<div class="container">
+<button class="btn btn-primary" (click)="name=!name">Ajouter</button></div>
+<div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Année</label>
+            </div>
+            <select (input)="getSearchAnn($event)" class="custom-select" id="inputGroupSelect01">
+                <option selected>Choisir Année</option>
+                <option value="2023">2023</option>
+        
+            </select>
+            </div>
+        
+      </div>
+      <div class="col-md-auto">
+        
+      </div>
+      <div class="col col-lg-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Programme</label>
+            </div>
+            <select (input)="getSearchProg($event)" class="custom-select" id="inputGroupSelect01">
+                <option value="Porgramme" selected>Choisir Programme</option>
+                <option value="programme 1">Programme 1</option>
+                <option value="programme 2">Programme 2</option>
+                <option value="programme 3">Programme 3</option>
+                <option value="programme 4">Programme 4</option>
+            </select>
+            </div>
+        
+      </div>
+    </div>
+    </div>
+
+<div class="container">
+<button class="btn btn-success" (click)="exportexcel()">Exporter Excel</button></div><br>
+<div class="container">
+<table class="table" id="excel-table" >
+    <thead>
+      <tr>
+        <th scope="col">Année de Plannification</th>
+        <th scope="col">Programme</th>
+        <th scope="col">Type Projet</th>
+        <th scope="col">Dimension Ciblée</th>
+        <th scope="col">Problématique Ciblée</th>
+        <th scope="col">Frein du Développement</th>
+        <th scope="col">Nombre de Projet</th>
+        <th scope="col">Cout Total</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let per of plannings">
+     
+        <th scope="row">{{ per.annee }}</th>
+        <td>{{ per.programme }}</td>
+        <td>{{ per.typeprojet }}</td>
+        <td>{{ per.demensioncible }}</td>
+        <td>{{ per.problemcible }}</td>
+        <td>{{ per.freindev }}</td>
+        <td>{{ per.nbrprojet }}</td>
+        <td>{{ per.couttotal }} DH</td>
+        <td>
+            <button class="btn btn-danger btn-sm " (click)="deleteSppdhData(per.id)"  >Supprimer</button>
+            <button class="btn btn-dark btn-sm mx-2" routerLink="../editsppdh/{{per.id}}" > Editer </button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+<div class="container" >
+<form (ngSubmit)="insertPlanData()" *ngIf="name">
+  <table class="table table-primary">
+    <thead>
+      <tr>
+        <th scope="col" style="text-align: center;">Saisie Fiche plannification Sommaire PPDH</th>
+      
+        </tr>
+</thead>
+  </table>
+   
+      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="typeprojet" placeholder="Type de Projet"  [(ngModel)]="planning.typeprojet">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="demensioncible" placeholder="Démension Ciblée" [(ngModel)]="planning.demensioncible">
+        </div>
+        
+      </div>      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="problemcible" placeholder="Problématique Ciblée" [(ngModel)]="planning.problemcible">
+        </div>
+        <div class="col">
+  
+            <select [(ngModel)]="planning.freindev" name="freindev" class="custom-select" id="inputGroupSelect01">
+               
+                <option value="Disponible" [selected]="planning.freindev">Disponible </option>
+                  <option value="Accessiblite">Accessiblité</option>
+                  <option value="Qualite">Qualité</option>
+                  <option value="Comportements">Comportements</option>
+                 
+                  </select>
+        </div>
+     
+        
+      </div>      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" name="nbrprojet" placeholder="Nombre de Projet" [(ngModel)]="planning.nbrprojet">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="couttotal" placeholder="Cout Total" [(ngModel)]="planning.couttotal">
+        </div>
+        
+      </div><br>
+      <div class="row">
+        
+        <div class="col">
+            <select [(ngModel)]="planning.programme" name="programme" class="custom-select" id="inputGroupSelect01">
+               
+                <option value="programme 1" [selected]="planning.programme">programme 1 </option>
+                  <option value="programme 2">programme 2 </option>
+                  <option value="programme 3">programme 3 </option>
+                  <option value="programme 4">programme 4 </option>
+                 
+                  </select>
+        </div>
+        <div class="col">
+          <input type="hidden" class="form-control" name="annee" [(ngModel)]="planning.annee" >
+        </div>
+      </div>
+      <br>
+    <button class="btn btn-info" >Ajouter</button>
+</form>
+</div>
+
+
+
+</div>

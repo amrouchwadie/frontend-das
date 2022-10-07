@@ -1,0 +1,55 @@
+<app-navbar2></app-navbar2>
+
+<div class="container">
+<div  class="wrapper bg-white mt-sm-5" >
+    <span style="font-size: x-large;"> <b> Profile </b> </span>  <br>
+    <span style="color: dodgerblue;font-size: medium;">
+<a href="dashboard">Accueil </a><a [routerLink]="['../../updateprofile',idd]"> / Consulte Profile </a>
+
+</span>
+</div>
+<div class="wrapper bg-white mt-sm-5">
+    
+    <h4 class="pb-4 border-bottom">Paramaitre de Compte</h4>
+    <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section"> <b>Avatar Photo</b>
+            <p>Details de votre compte et mot de passe</p>
+        </div>
+    </div>
+ 
+    <div class="py-2">
+        <form (ngSubmit)="updateUser()">
+        <div class="row py-2">
+           
+            <div class="col-md-6"> 
+                <label for="name">Nom Complete</label> 
+                <input type="text"  name="name"class="bg-light form-control" [(ngModel)]="userss.name"> 
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3">
+                 <label for="email">Email</label> 
+                 <input type="email" name="email" class="bg-light form-control" [(ngModel)]="userss.email"> 
+                </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-md-6"> <label for="password">Mot de passe</label>
+                 <input type="password" name="password" class="bg-light form-control"  [value]="userss.password">
+                 </div>
+            <div class="col-md-6 pt-md-0 pt-3"> <label for="confirmpassword">Confirme Mot de passe</label> <input type="password"  class="bg-light form-control"  [value]="userss.password"> </div>
+     
+            <input type="hidden" name="role_id" class="bg-light form-control"  [(ngModel)]="userss.role_id">
+        </div>
+        <button class="btn btn-primary">Sauvgarde</button>
+  
+    </form>
+       <br>
+       
+        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div> <b>desactivé votre compte</b>
+                <p>Details de votre compte sera définitivement supprimé </p>
+            </div>
+            <div class="ml-auto"> <button class="btn danger" (click)="deleteUsers(idd)"  ><span style="color: red;">Desactivé</span></button> </div>
+        </div>
+    </div>
+
+</div>
+</div>

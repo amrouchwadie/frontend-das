@@ -1,0 +1,20 @@
+<app-navbar3></app-navbar3>
+<br>
+<div class="container">
+    <form (ngSubmit)="updateParte()">
+        <div class="form-group">
+            <label for="name">nom permission</label>
+            <input type="text" name="name" class="form-control" placeholder="entrer le nom de permission" [(ngModel)]="partenir.name" >
+        </div>
+        <div class="form-group">
+            <label for="name">Nationalité</label>
+            <input type="text" name="nationality" class="form-control" placeholder="entrer Nationalité" [(ngModel)]="partenir.nationality" >
+        </div>
+        <div class="form-group">
+            <label for="name">Cotisation</label>
+            <input type="number" name="cotisation" class="form-control" placeholder="entrer cotisation" [(ngModel)]="partenir.cotisation" >
+        </div>
+     
+        <button class="btn btn-dark btn-sm mt-4">Submit</button>
+    </form>
+</div>

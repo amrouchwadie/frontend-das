@@ -1,0 +1,75 @@
+<nav class="navbar navbar-light bg-light">
+ 
+    <a class="navbar-brand" >
+      <img src="../../../assets/وزارة الداخلية المملكة المغربية.PNG" width="38%" alt="">
+      <h6>Province: FAHS ANJRA</h6></a>
+  
+      <h1 style="font-size: x-large;text-align: center;">Systéme d'Informations pour la gestion de le diagnostic des programmes 1,2 et 4 de INDH3 <br>
+      <span style="color: brown;">Espace de Gestion de Compte et Permission </span>
+      </h1>
+  </nav>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard">Home <span class="sr-only">(current)</span></a>
+        </li>
+  
+       
+  
+    
+  
+        <li class="nav-item">
+          <a class="nav-link" href="users">Gestion de compte</a>
+        </li>
+      
+        <!-- <li class="nav-item" *ngIf="this.idd == '1' ">
+            <a class="nav-link " href="permissions" >Permission</a>
+          </li> -->
+
+          <li class="nav-item dropdown" *ngIf="this.idd == '1' ">
+            <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Gestion des roles
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="getroles">Consultation des roles</a>
+              <a class="dropdown-item" href="newrole">Assign Role</a>
+             
+              
+             
+            </div>
+          </li>
+      
+
+    
+
+       
+      </ul>
+    <ul>
+      
+      <li class="nav-item dropdown">
+   
+        
+       
+         
+        <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bonjour {{message}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['../editprofile',idd]">Paramaitre</a>
+          <a class="dropdown-item" href="#">FAQ</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/login" (click)="logout()">Deconnexion</a>
+        </div>
+      </li>
+    </ul>
+  
+    </div>
+  </nav>
+  

@@ -1,0 +1,89 @@
+<nav class="navbar navbar-light bg-light">
+ 
+    <a class="navbar-brand" >
+      <img src="../../../assets/وزارة الداخلية المملكة المغربية.PNG" width="38%" alt="">
+      <h6>Province: FAHS ANJRA</h6></a>
+  
+      <h1 style="font-size: x-large;text-align: center;">Systéme d'Informations de suivi-Evaluation de la mise en oeuvre des programme de INDH3 <br>
+      <span style="color: brown;">Plan Pluriannuel de Développement Humain PPDH </span>
+      </h1>
+  </nav>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="dashboard">Home <span class="sr-only">(current)</span></a>
+        </li>
+  
+        <li class="nav-item dropdown" >
+          <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Saisir
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="pdh">Présentation du développement humain</a>
+            <a class="dropdown-item" routerLink="/sppdh">Planification Somaire PPDH</a>
+            <a class="dropdown-item" routerLink="/searchp1" href="#" > <div *ngIf="this.idd == '2' || this.idd=='1' "> Programme 1</div></a>
+            <a class="dropdown-item" routerLink="/searchp2"  href="#" ><div *ngIf="this.idd == '3'|| this.idd=='1'"> Programme 2</div></a>
+            <a class="dropdown-item" routerLink="/searchp3"  href="#" ><div *ngIf="this.idd == '4'|| this.idd=='1'"> Programme 3</div></a>
+            <a class="dropdown-item" routerLink="/searchp4" href="#" ><div *ngIf="this.idd == '5'|| this.idd=='1'">Programme 4</div></a>
+            
+           
+          </div>
+        </li>
+  
+    
+        <li class="nav-item" >
+          <a class="nav-link " href="runion"  ><span >   Réunion [CPDH/CRDH]</span></a>
+        </li>
+      
+     
+
+        <li class="nav-item" >
+            <a class="nav-link " href="suivibase"  ><span > Suivi de la base</span></a>
+          </li>
+
+        
+          <li class="nav-item">
+            <a class="nav-link " href="partenir" >Gestion de partenaire</a>
+          </li>
+          <li class="nav-item" >
+      
+            <a class="nav-link " href="folders"  >Archivage Dossier</a>
+          </li>
+          <li class="nav-item" >
+     <div  > 
+            <a class="nav-link " href="#" >Statistiques</a></div>
+          </li>
+
+    
+
+       
+      </ul>
+    <ul>
+      
+      <li class="nav-item dropdown">
+   
+        
+       
+         
+        <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bonjour {{message}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['../editprofile',idd]">Paramaitre</a>
+          <a class="dropdown-item" href="#">FAQ</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/login" (click)="logout()">Deconnexion</a>
+        </div>
+      </li>
+    </ul>
+  
+    </div>
+  </nav>
+  

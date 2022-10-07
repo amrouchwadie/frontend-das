@@ -1,0 +1,63 @@
+<app-navbar3></app-navbar3>
+<br>
+<div class="container" >
+  <table class="table table-primary">
+    <thead>
+      <tr>
+        <th scope="col">Modification Fiche plannification Sommaire PPDH</th>
+      
+        </tr>
+</thead>
+  </table>
+    <form (ngSubmit)="updateSppdh()" >
+ 
+          <br>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" name="typeprojet" placeholder="Type de Projet"  [(ngModel)]="planning.typeprojet">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="demensioncible" placeholder="Démension Ciblée" [(ngModel)]="planning.demensioncible">
+            </div>
+            
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" name="problemcible" placeholder="Problématique Ciblée" [(ngModel)]="planning.problemcible">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="freindev" placeholder="Frein de Developpment" [(ngModel)]="planning.freindev">
+            </div>
+            
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" name="nbrprojet" placeholder="Nombre de Projet" [(ngModel)]="planning.nbrprojet">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="couttotal" placeholder="Cout Total" [(ngModel)]="planning.couttotal">
+            </div>
+            
+          </div> <br>
+          <div class="row">
+        
+            <div class="col">
+                <select [(ngModel)]="planning.programme" name="programme" class="custom-select" id="inputGroupSelect01">
+                   
+                    <option value="programme 1" [selected]="planning.programme">programme 1 </option>
+                      <option value="programme 2">programme 2 </option>
+                      <option value="programme 3">programme 3 </option>
+                      <option value="programme 4">programme 4 </option>
+                     
+                      </select>
+            </div>
+            <div class="col">
+              <input type="hidden" class="form-control" name="annee" [(ngModel)]="planning.annee" >
+            </div>
+          </div>
+           <br>
+        <button class="btn btn-info" >Mise a jour</button>
+    </form>
+    </div>

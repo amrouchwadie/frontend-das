@@ -1,0 +1,26 @@
+<app-navbar3></app-navbar3>
+<br>
+
+<div class="container">
+    <a href="" class="btn btn-primary" routerLink="../../addfile">Ajouter Fichier </a>
+<div class="card-group">
+    <div class="card" *ngFor="let item of data">
+      <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;">{{item.name}}</h5>
+  
+
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"> 
+    <a href="#" (click)="downloadFile(item.file)" class="btn btn-success" download="{{item.file}}">Telecharger</a>
+          <!-- <a href="#" routerLink="{{item.file}}" target="_blank" class="btn btn-success" download="{{item.file}}" >Telecharger</a>  -->
+        
+        </small>
+
+        
+      </div>
+    </div>
+    </div>
+  </div>
+    

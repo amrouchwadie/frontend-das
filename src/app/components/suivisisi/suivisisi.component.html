@@ -1,0 +1,117 @@
+<app-navbar3></app-navbar3>
+<br>
+<div class="container">
+    <full-calendar locale="fr" [options]="calendarOptions"></full-calendar><br>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <span style="color:black">Ajouter</span>    
+      </button>
+      <br>    <br>
+      <table class="table">
+        <thead >
+          <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">Titre de reunion/evenement</th>
+            <th scope="col">Date Debut</th>
+            <th scope="col">Date fin</th>
+            <th scope="col">Action</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of calendars">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.title}}</td>
+            <td>{{item.start}}</td>
+            <td>{{item.end}}</td>
+            <td><button class="btn btn-success" routerLink="../reunion/{{item.id}}" data-toggle="modal" data-target="#exampleModal2">
+               Editer
+              </button></td>
+            <td><button class="btn btn-danger btn-sm " (click)="deleteData(item.id)"  >Supprimer</button></td>
+          </tr>
+    
+        </tbody>
+      </table>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ajouter une Reunion/evenement</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form (ngSubmit)="insertData()">
+            <div class="modal-body">
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping">Titre</span>
+                    </div>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="validate.title" placeholder="Reunion/Evenement" aria-label="Reunion/Evenement" aria-describedby="addon-wrapping">
+                  </div><br>
+                  <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping">Date Debut</span>
+                    </div>
+                    <input type="date" class="form-control" name="start"  [(ngModel)]="validate.start" placeholder="Date Debut" aria-label="Date Debut" aria-describedby="addon-wrapping">
+                  </div><br>
+                  <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="addon-wrapping">Date Fin</span>
+                    </div>
+                    <input type="date" class="form-control" name="end"  [(ngModel)]="validate.end" placeholder="Date Fin" aria-label="Date Fin" aria-describedby="addon-wrapping">
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button  class="btn btn-secondary" data-dismiss="modal">Férmer</button>
+              <button  class="btn btn-primary" >Sauvgarde</button>
+            </div>
+        </form>
+          </div>
+          
+        </div>
+      </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel2">Modifier une Reunion/evenement</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <form (ngSubmit)="updateValidation()">
+                    <div class="modal-body">
+                        <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping">Titre</span>
+                            </div>
+                            <input type="text" class="form-control" name="title" [(ngModel)]="validate.title" placeholder="Reunion/Evenement" aria-label="Reunion/Evenement" aria-describedby="addon-wrapping">
+                          </div><br>
+                          <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping">Date Debut</span>
+                            </div>
+                            <input type="date" class="form-control" name="start"  [(ngModel)]="validate.start" placeholder="Date Debut" aria-label="Date Debut" aria-describedby="addon-wrapping">
+                          </div><br>
+                          <div class="input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="addon-wrapping">Date Fin</span>
+                            </div>
+                            <input type="date" class="form-control" name="end"  [(ngModel)]="validate.end" placeholder="Date Fin" aria-label="Date Fin" aria-describedby="addon-wrapping">
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button  class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                      <button  class="btn btn-primary" >Sauvgarde</button>
+                    </div>
+                </form>
+                  </div>
+                  
+                </div>
+              </div>
+<br>
+
+</div>

@@ -1,0 +1,23 @@
+<app-navbar3></app-navbar3>
+
+<br>
+
+
+<div class="container">
+    <a class="btn btn-primary" routerLink="../adddossier">Ajouter Dossier</a> <br> <br>
+        <div class="col mb-4">
+            <div class="card-deck">
+                <div class="card" *ngFor="let item of files">
+                  <img src="https://www.seekpng.com/png/full/17-171911_open-tan-file-folder-transparent.png" width="50%" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                  </div>
+                  <div class="card-footer">
+                  <a routerLink="../files/{{item.id}}"><h1 class="text-muted">{{item.name}}</h1></a> 
+                  </div>
+                </div>
+     
+            </div>
+ 
+</div>

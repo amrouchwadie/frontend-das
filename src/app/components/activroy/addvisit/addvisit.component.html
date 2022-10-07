@@ -1,0 +1,413 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container">
+    <form (ngSubmit)="insertvisitedata()">
+<table class="table" >
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col" style="color:white">Donnée de Projet/Action</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    Type d'activite propose
+                  </div>
+                  <div class="col">
+                    <div class="input-group mb-3">
+                     
+                        <select [(ngModel)]="visite.typeactivite" name="typeactivite" class="custom-select" id="inputGroupSelect01">
+                          <option selected>Selectionner un Type...</option>
+                          <option value="Inaugaration">Inaugaration</option>
+                          <option value="Lancement">Lancement</option>
+                          <option value="Pose de premiere pierre">Pose de premiere pierre</option>
+                          <option value="Présentation">Présentation</option>
+                          <option value="Remise">Remise</option>
+                          <option value="Signature de convention">Signature de convention</option>
+                          <option value="Visite">Visite</option>
+                        </select>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                  Annexe Administrative Site
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                     
+                            <select [(ngModel)]="visite.site" name="site" class="custom-select" id="inputGroupSelect01">
+                              <option selected>Selectionner un Site...</option>
+                              <option value="(Cercle)FAHS">(Cercle)FAHS</option>
+                              <option value="(Cercle)ANJRA">(Cercle)ANJRA</option>
+                              <option value="(District) Tanger-Med">(District) Tanger-Med</option>
+                
+                            </select>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Commun Site
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                        <select (change)="changeCountry($event)" [(ngModel)]="visite.commun" name="commun" class="custom-select"  id="commun"   >
+                            <option selected>Selectionner Commun...</option>
+                            <option  *ngFor="let item of countryList " value="{{item.name}}" >{{item.name}}</option>
+                          </select>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Douar Site
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                        <select class="custom-select" [(ngModel)]="visite.douar" name="douar" id="douar" >
+                            <option selected>Selectionner Douar...</option>
+                            <option *ngFor="let itm of cities" value="{{itm}}">{{itm}}</option>
+                      
+                          </select>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                     Programme INDH
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                     
+                            <select [(ngModel)]="visite.programme" name="programme" id="programme" class="custom-select" id="inputGroupSelect01">
+                              <option selected>Selectionner un Programme...</option>
+                              <option value="Programme 1">Programme 1</option>
+                              <option value="Programme 2">Programme 2</option>
+                              <option value="Programme 3">Programme 3</option>
+                              <option value="Programme 4">Programme 4</option>
+                            </select>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                     Secteur Projet
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                        <div class="input-group flex-nowrap">
+                        
+                            <input type="text" [(ngModel)]="visite.secteur" name="secteur" id="secteur"  class="form-control" placeholder="secteur" aria-label="secteur" aria-describedby="addon-wrapping">
+                          </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      Objectif de projet
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                        <div class="input-group">
+                         
+                            <textarea class="form-control" [(ngModel)]="visite.objectif" name="objectif" id="objectif" aria-label="With textarea"></textarea>
+                          </div>
+                    </div>
+                    </div>
+
+                  </div> 
+                  <table style="border-collapse: collapse; width: 100%;" border="1">
+                    <tbody>
+                    <tr>
+                    <td style="width: 100%;">
+                        <div class="row">
+                            <div class="col">
+                                Cout Global (DH)
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group flex-nowrap">
+                                    
+                                        <input type="number" [(ngModel)]="visite.couttotal" name="couttotal" id="couttotal" class="form-control" placeholder="Cout Global" aria-label="Cout Global" aria-describedby="addon-wrapping">
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                Charge Annuelle de fonctionemment (DH)
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group flex-nowrap">
+                                    
+                                        <input type="number" class="form-control"  [(ngModel)]="visite.coutannul" name="coutannul" id="coutannul" placeholder="Charge " aria-label="Charge " aria-describedby="addon-wrapping">
+                                      </div>
+                                </div>
+                              </div>
+                          </div>
+                 
+                    </td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col">
+                          Type du projet
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                            <div class="input-group">
+                             
+                                <input type="text" class="form-control" [(ngModel)]="visite.typeprojet" name="typeprojet" id="typeprojet" placeholder="type projet " aria-label="typeprojet " aria-describedby="addon-wrapping">
+                              </div>
+                        </div>
+                        </div>
+    
+                      </div> 
+                      <div class="row">
+                        <div class="col">
+                         Disponiblité Foncier
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="aaa" [(ngModel)]="visite.disponiblite"  name="disponiblite" value="Oui" class="custom-control-input">
+                            <label class="custom-control-label" for="aaa">Oui</label>
+                          </div>
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="bbb" [(ngModel)]="visite.disponiblite" name="disponiblite" value="Non"  class="custom-control-input">
+                            <label class="custom-control-label" for="bbb">Non</label>
+                          </div>
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="ccc" [(ngModel)]="visite.disponiblite" name="disponiblite" value="Non Applicable"  class="custom-control-input">
+                            <label class="custom-control-label" for="ccc">Non Applicable</label>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                  
+                                 Etude
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                  <div class="custom-control custom-radio1">
+                                    <input type="radio" id="eee" [(ngModel)]="visite.etude"  name="etude" value="Disponible" class="custom-control-input">
+                                    <label class="custom-control-label" for="eee">Disponible</label>
+                                  </div>
+                                  <div class="custom-control custom-radio1">
+                                    <input type="radio" id="bfffbb" [(ngModel)]="visite.etude"  name="etude" value="Non Disponible"  class="custom-control-input">
+                                    <label class="custom-control-label" for="bfffbb">Non Disponible</label>
+                                  </div>
+                                  <div class="custom-control custom-radio1">
+                                    <input type="radio" id="cccddd" [(ngModel)]="visite.etude"  name="etude" value="Non Applicable"  class="custom-control-input">
+                                    <label class="custom-control-label" for="cccddd">Non Applicable</label>
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                 Financement
+                                </div>
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                  <div class="custom-control custom-radio1">
+                                    <input type="radio" id="assa" name="finance" [(ngModel)]="visite.finance"  value="Disponible" class="custom-control-input">
+                                    <label class="custom-control-label" for="assa">Disponible</label>
+                                  </div>
+                                  <div class="custom-control custom-radio1">
+                                    <input type="radio" id="sfdf" name="finance" [(ngModel)]="visite.finance"  value="Non Disponible"  class="custom-control-input">
+                                    <label class="custom-control-label" for="sfdf">Non Disponible</label>
+                                  </div>
+                            </div>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                       Autorisations
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="cdfs" [(ngModel)]="visite.autorisation"  name="autorisation" value="Oui" class="custom-control-input">
+                            <label class="custom-control-label" for="cdfs">Oui</label>
+                          </div>
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="bdfdfbb" [(ngModel)]="visite.autorisation"  name="autorisation" value="Non"  class="custom-control-input">
+                            <label class="custom-control-label" for="bdfdfbb">Non</label>
+                          </div>
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="cfdfdcc" name="autorisation" [(ngModel)]="visite.autorisation"  value="Non Applicable"  class="custom-control-input">
+                            <label class="custom-control-label" for="cfdfdcc">Non Applicable</label>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                         Type Maître d'ouvrage
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                         
+                                <select [(ngModel)]="visite.typeoffre" name="typeoffre" id="typeoffre" class="custom-select" id="inputGroupSelect01">
+                                  <option selected>- Choisir un type</option>
+                                  <option value="Collectives locales/région(conseil regional)">Collectives locales/région(conseil regional)</option>
+                                  <option value="Collectivités locales/Province/Préfecture (Conseil Provincial/Préfectural)">Collectivités locales/Province/Préfecture (Conseil Provincial/Préfectural)</option>
+                                    <option value="Collectivités locales/Groupement de commune">Collectivités locales/Groupement de commune</option>
+                                    <option value="Collectivités locales/Commune ou Arrondissement (Conseil Communal ou d'arrondissement)">Collectivités locales/Commune ou Arrondissement (Conseil Communal ou d'arrondissement)</option>
+                                    <option value="Fondations et Organisations Non Gouvernementales (ONG)/Associations">Fondations et Organisations Non Gouvernementales (ONG)/Associations</option>
+                                    <option value="Fondations et Organisations Non Gouvernementales (ONG)/Coopératives">Fondations et Organisations Non Gouvernementales (ONG)/Coopératives</option>
+                                    <option value="Fondations et Organisations Non Gouvernementales (ONG)/Fondations">Fondations et Organisations Non Gouvernementales (ONG)/Fondations</option>
+                                    <option value="Fondations et Organisations Non Gouvernementales (ONG)/Groupement GIE ou socièté de personnes">Fondations et Organisations Non Gouvernementales (ONG)/Groupement GIE ou socièté de personnes</option>
+                                    <option value="Fondations et Organisations Non Gouvernementales (ONG)/ONG Internationale">Fondations et Organisations Non Gouvernementales (ONG)/ONG Internationale</option>
+                                    <option value="Fondations et Organisations Non Gouvernementales (ONG)/Collectivités Ethniques">Fondations et Organisations Non Gouvernementales (ONG)/Collectivités Ethniques</option>
+                                    <option value="Services déconcentrés de l Etat/Direction Provinciale/Préfectorale  de l'agriculture (DPA)">Services déconcentrés de l Etat/Direction Provinciale/Préfectorale  de l'agriculture (DPA)</option>
+                                    <option value="Services déconcentrés de l Etat/Chambres  du commerce et de l'industrie">Services déconcentrés de l Etat/Chambres  du commerce et de l'industrie</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de la Culture">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de la Culture</option>
+                                    <option value="Services déconcentrés de l Etat/Agence du développement Social">Services déconcentrés de l Etat/Agence du développement Social</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de l'éducation nationale">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de l'éducation nationale</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de la Formation Professionnelle">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de la Formation Professionnelle</option>
+                                    <option value="Services déconcentrés de l Etat/ONEE - Brache Eau">Services déconcentrés de l Etat/ONEE - Brache Eau</option>
+                                    <option value="Services déconcentrés de l Etat/Direction Provinciale/Préfectorale de l'Equipement">Services déconcentrés de l Etat/Direction Provinciale/Préfectorale de l'Equipement</option>
+                                    <option value="Services déconcentrés de l Etat/Direction Régionale  de l'Habitat et de l'Urbanisme  et de l'Aménagement  de l'espace ">Services déconcentrés de l Etat/Direction Régionale  de l'Habitat et de l'Urbanisme  et de l'Aménagement  de l'espace </option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale  des habous et des affaires islamiques">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale  des habous et des affaires islamiques</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de la jeunesse et sports">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de la jeunesse et sports</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de  la santé">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de  la santé</option>
+                                    <option value="Services déconcentrés de l Etat/Agence du Bassin Hydraulique">Services déconcentrés de l Etat/Agence du Bassin Hydraulique</option>
+                                    <option value="Services déconcentrés de l Etat/Direction Provinciale/Préfectorale des eaux et forêts">Services déconcentrés de l Etat/Direction Provinciale/Préfectorale des eaux et forêts</option>
+                                    <option value="Services déconcentrés de l Etat/Promotion Nationale">Services déconcentrés de l Etat/Promotion Nationale</option>
+                                    <option value="Services déconcentrés de l Etat/Régies autonome">Services déconcentrés de l Etat/Régies autonomes</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de l'Artisanat">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de l'Artisanat</option>
+                                    <option value="Services déconcentrés de l Etat/Croissant Rouge Marocain">Services déconcentrés de l Etat/Croissant Rouge Marocain</option>
+                                    <option value="Services déconcentrés de l Etat/Entraide Nattionale">Services déconcentrés de l Etat/Entraide Nattionale</option>
+                                    <option value="Services déconcentrés de l Etat/Coordination Régionale de l'Agence de Développement Social">Services déconcentrés de l Etat/Coordination Régionale de l'Agence de Développement Social</option>
+                                    <option value="Services déconcentrés de l Etat/Académie Régionale de l'Education et de la Formation">Services déconcentrés de l Etat/Académie Régionale de l'Education et de la Formation</option>
+                                    <option value="Services déconcentrés de l Etat/ONEE - Brache Electricité">Services déconcentrés de l Etat/ONEE - Brache Electricité</option>
+                                    <option value="Services déconcentrés de l Etat/Direction Régionale de l'Equipement">Services déconcentrés de l Etat/Direction Régionale de l'Equipement</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de l'Habitat et de l'Urbanisme  et de l'Aménagement  de l'espace">Services déconcentrés de l Etat/Délégation Provinciale/Préfectorale de l'Habitat et de l'Urbanisme  et de l'Aménagement  de l'espace</option>
+                                    <option value="Services déconcentrés de l Etat/Agence de la Promotion et le Développement du Nord (APDN)">Services déconcentrés de l Etat/Agence de la Promotion et le Développement du Nord (APDN)</option>
+                                    <option value="Services déconcentrés de l Etat/Délégation Générale à l’administration pénitentiaire et à la réinsertion">Services déconcentrés de l Etat/Délégation Générale à l’administration pénitentiaire et à la réinsertion</option>
+                                </select>
+                              </div>
+                        </div>
+                      </div>
+                     
+                      <div class="row">
+                        <div class="col">
+                          Date Debut de Travaux
+                        </div>
+                        <div class="col">
+                            <input type="date" [(ngModel)]="visite.datedebut" name="datedebut" id="datedebut" class="form-control" placeholder="datedebut " aria-label="datedebut " aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="col">
+                            Date fin de Travaux
+                        </div>
+                        <div class="col">
+                            <input type="date" [(ngModel)]="visite.datefin" name="datefin" id="datefin" class="form-control" placeholder="datefin " aria-label="datefin " aria-describedby="addon-wrapping">
+                          </div>
+                      </div>
+<br>
+
+                      <table class="table">
+                        <thead class="bg-primary">
+                          <tr>
+
+                            <th scope="col" style="color: white;">Etat D'avencement de Travaux</th>
+                    
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">
+
+                                <div class="row">
+                                    <div class="col">
+                                      Situation de marché
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                           
+                                            <select [(ngModel)]="visite.etatavance" id="etatavance" name="etatavance" class="custom-select" id="inputGroupSelect01">
+                                              <option selected>Selectionner une situation...</option>
+                                              <option value="Non démarrer">Non démarrer</option>
+                                              <option value="En cours">En cours</option>
+                                              <option value="Achevé">Achevé</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                    <div class="col">
+                                      Taux d'avencement physique
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group mb-3">
+                                        <input type="number" [(ngModel)]="visite.percavance" id="percavance" name="percavance"  class="form-control" placeholder="En percentage" min="0" max="100" aria-label="percavance " aria-describedby="addon-wrapping">
+                                        </div>  
+                                    </div>
+                                  </div>
+
+                            </th>
+                      
+                          </tr>
+                      
+                        </tbody>
+                      </table>
+                      <div class="row">
+                        <div class="col">
+                          
+                         Suite Reservation
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="hgfhfgaaa" name="suiteobserve"  [(ngModel)]="visite.suiteobserve" value="En attend de l'Activité Royale" class="custom-control-input">
+                            <label class="custom-control-label" for="hgfhfgaaa">En attend de l'Activité Royale</label>
+                          </div>
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="dhgbbb" name="suiteobserve"  [(ngModel)]="visite.suiteobserve"  value="Fait Object déja d'une Activité Royale"  class="custom-control-input">
+                            <label class="custom-control-label" for="dhgbbb">Fait Object déja d'une Activité Royale</label>
+                          </div>
+                          <div class="custom-control custom-radio1">
+                            <input type="radio" id="ccfgfgfc" name="suiteobserve"  [(ngModel)]="visite.suiteobserve"  value="N'est plus proposé à une Activité Royales"  class="custom-control-input">
+                            <label class="custom-control-label" for="ccfgfgfc">N'est plus proposé à une Activité Royales</label>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                         Observation
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                            <div class="input-group flex-nowrap">
+                            
+                                <textarea class="form-control" [(ngModel)]="visite.observation" name="observation" id="observation" aria-label="With textarea"></textarea>
+                              </div>
+                        </div>
+                      </div>
+                      </div>
+                </div>
+                
+        </th>
+       
+   
+    </tbody>
+  </table>
+<button class="btn btn-success">Enregistrer</button>
+</form>
+</div>

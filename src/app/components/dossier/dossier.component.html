@@ -1,0 +1,9 @@
+<app-navbar3></app-navbar3>
+<div class="container">
+    <form (ngSubmit)="insertfilesdata()">
+           <div class="form-group">
+               <label for="name">Nom Dossier</label>
+               <input type="text" name="name" class="form-control" placeholder="Entrer le nom de dossier" [(ngModel)]="file.name" >
+           </div>
+           <button class="btn btn-dark btn-sm mt-4">Enregistrer</button>
+           </form>

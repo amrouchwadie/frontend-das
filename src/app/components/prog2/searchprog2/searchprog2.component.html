@@ -1,0 +1,134 @@
+<app-navbar3></app-navbar3>
+
+
+<br>
+<div class="container">
+  <div class="row" style="margin-bottom:15px;">
+    <div class="col-md-3">
+      <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+      <button  class="btn btn-success" (click)="file.click()">Upload File</button>
+    </div>
+    <div class="col-md-4">
+      <span class="upload" *ngIf="progress > 0">
+        {{progress}}%
+      </span>
+      <span class="upload" *ngIf="message">
+        {{message}}
+      </span>
+    </div>
+  </div>
+<table class="table ">
+    <thead class="bg-primary">
+      <tr>
+        <th scope="col">
+            <ul><li style="color: white;text-align: center;">20 - Programme d'accompagnement des personnes en situation de précarité</li></ul>
+        </th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Année</label>
+                            </div>
+                            <select (input)="getAnnProg1($event)" class="custom-select" id="inputGroupSelect01">  
+                                <option  selected>Choisir Annee</option>                         
+                                <option  value="2018">2018</option>
+                                <option  value="2019">2019</option>
+                                <option  value="2020">2020</option>
+                                <option  value="2022">2021</option>
+                                <option  value="2022">2022</option>
+                                <option  value="2023">2023</option>
+                            </select>
+                         
+                            </div>
+                            <br>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">Reference</span>
+                                </div>
+                                <input type="text" class="form-control" value="{{progs.programme2}}" (input)="getSearchprogData($event)" >
+                            
+                              </div>
+                  </div>
+                  <div class="col">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Secteur</label>
+                                    </div>
+                                    <select (input)="getTypeprojetProg1($event)" class="custom-select" id="inputGroupSelect01">
+                                        <option selected>Choisir Secteur</option>
+                                        <option  *ngFor="let svr of progs"  [value]="[svr.typeprojet]">{{svr.typeprojet}}</option>
+                                 
+                                    </select>
+                                    </div>
+                                    <br>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Intitulé(Mot clé)</span>
+                                        </div>
+                                        <input type="text" class="form-control" (input)="getIntituleProg1($event)" >
+                                    
+                                      </div>
+                          </div>
+                          </div>
+                          </div>
+
+                  </div>
+                </div>
+                </div>
+
+        </th>
+
+      </tr>
+      <button class="btn btn-primary btn-sm mx-2" routerLink="/prog2"> Ajouter </button>
+      <table class="table" *ngIf="this.data">
+        <thead class="bg-primary">
+          <tr style="color: white;">
+            <th scope="col">Année</th>
+            <th scope="col">Programme</th>
+            <th scope="col">Secteur</th>
+            <th scope="col">Type Projet/Action</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Intitulé</th>
+            <th scope="col">Coüt Global Estimatif</th>
+            <th scope="col">Status</th>
+            <th></th> <th></th> <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let svr of data">
+          <tr >
+            <th scope="row">{{svr.annee}}</th>
+            <td style="text-align: center;">{{svr.programme2}}</td>
+            <td style="text-align: center;">{{svr.demcible}}</td>
+            <td style="text-align: center;">{{svr.typeprojet}}</td>
+            <td style="text-align: center;">{{svr.id}}</td>
+            <td style="text-align: justify;">{{svr.intitule}}</td>
+            <td style="text-align: center;">{{svr.qte * svr.cout + svr.qtetotal +svr.partindh}} DH</td>
+            <td>{{svr.validation}}</td>
+            <td><a routerLink="../consultprog2/{{svr.id}}" class="btn btn-primary" role="button">Consulter</a></td>
+            <td><a routerLink="../editprog2/{{svr.id}}"  class="btn btn-success" role="button">Modifier</a></td>
+            <td><button (click)="deleteData(svr.id)" class="btn btn-danger" role="button">Supprimer</button></td>
+          </tr>
+    
+    
+        </tbody>
+      </table>
+
+
+    
+    </tbody>
+  </table>
+
+
+
+  
+</div>

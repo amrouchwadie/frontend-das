@@ -1,0 +1,47 @@
+<app-navbar3></app-navbar3>
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light ">
+
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <button class="btn btn-primary btn-sm mx-2" routerLink="/addPartenir"> Ajouter Partenaire </button>
+      </li>
+     
+     
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="recherche" aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Recherche</button>
+    </form>
+  </div>
+</nav>
+
+
+<br><br>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Nationality</th>
+        <th scope="col">Cotisation</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let par of partenirs">
+        <th scope="row">{{ par.id }}</th>
+        <td>{{ par.name }}</td>
+        <td>{{ par.nationality }}</td>
+        <td>{{ par.cotisation }} DH</td>
+        <td>
+            <button class="btn btn-danger btn-sm " (click)="deletePartnirData(par.id)" >Supprimer</button>
+            <button class="btn btn-dark btn-sm mx-2" routerLink="../editpartenir/{{par.id}}"> Editer </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

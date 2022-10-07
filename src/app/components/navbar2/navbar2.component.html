@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-light">
+ 
+    <a class="navbar-brand" >
+      <img src="../../../assets/وزارة الداخلية المملكة المغربية.PNG" width="38%" alt="">
+      <h6>Province: FAHS ANJRA</h6></a>
+     <h1 style="font-size: x-large;margin-right: 20%;text-align: center;">Systémes d'information de suivi Evaluation <br> de la mise en oeuvre des programmes de l'INDH3</h1> 
+    
+     
+      <ul  style="margin-bottom: -11%;"> 
+      <li class="nav-item dropdown ">
+   
+        
+       
+     
+        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bonjour {{message}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['../editprofile',idd]">Paramaitre</a>
+          <a class="dropdown-item" href="#">FAQ</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/login" (click)="logout()">Deconnexion</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  
+       
+         
+
+      
+
+  
+
+  
